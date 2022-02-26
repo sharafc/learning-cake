@@ -1,0 +1,14 @@
+{
+  "name": "view",
+  "version": "1.0.0",
+  "description": "Frontend for Cake learning App",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Christian Sharaf (https://www.christian-sharaf.de)",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
