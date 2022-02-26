@@ -34,6 +34,7 @@ Task("Restore")
     {
         // Reads package.json and installs node.js packages
         NpmInstall(source => source.FromPath(frontentFolder));
+
         // Basic dotnet restore
         DotNetRestore(solutionFolder);
     });

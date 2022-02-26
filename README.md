@@ -94,3 +94,52 @@ Build                         00:00:01.0871844
 --------------------------------------------------
 Total:                        00:00:02.1209581
 ```
+
+## 4. Extend Build with Frontend Stack
+Create a new folder:
+```
+View
+```
+and navigate into it.
+
+Initialise everything by answering the questions and add Gulp as dev dependency:
+```
+npm init
+npm install --save-dev gulp
+npm install
+```
+
+Check if a current version of Gulp is installed:
+```csharp
+gulp --version
+CLI version: 2.3.0
+Local version: 4.0.2
+```
+
+Create a basic Gulpfile.
+
+Navigate to root and modify `build.cake`, add the needed Addin directives:
+```
+#addin nuget:?package=Cake.Gulp&version=1.0.0
+#addin nuget:?package=Cake.Npm&version=2.0.0
+```
+
+Update the Tasks to contain some NPM/Gulp magic.
+```csharp
+// Reads package.json and installs node.js packages
+NpmInstall(source => source.FromPath(frontentFolder));
+// Executes the gulpfile.js script
+Gulp.Global.Execute(settings => settings.WithGulpFile(frontentFolder + "/gulpfile.js"));
+```
+
+Execute the cake build and ignore the Gulp warnings:
+```csharp
+dotnet cake
+Task                          Duration
+--------------------------------------------------
+Restore                       00:00:15.1775858
+Build                         00:00:06.5769889
+Test                          00:00:05.9610555
+--------------------------------------------------
+Total:                        00:00:27.7156302
+```
