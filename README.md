@@ -45,7 +45,6 @@ dotnet build
 dotnet test
 ```
 
-
 ## 2. Install Cake
 Create a tool manifest in your solution root:
 ```
@@ -78,4 +77,19 @@ Build                         00:00:01.1894880
 Test                          00:00:02.2252189
 --------------------------------------------------
 Total:                        00:00:04.5236184
+```
+
+If you want to call a specific Task you can just call it by its name:
+```
+dotnet cake --target=Build
+```
+
+Which then gives a corresponding result like this:
+```csharp
+Task                          Duration
+--------------------------------------------------
+Restore                       00:00:01.0337737
+Build                         00:00:01.0871844
+--------------------------------------------------
+Total:                        00:00:02.1209581
 ```
