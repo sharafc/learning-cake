@@ -66,12 +66,6 @@ Task("Test")
         });
     });
 
-Task("Gulp")
-    .IsDependentOn("Build")
-    .Does(() =>
-    {
-        Gulp.Local.Execute();
-    });
 
 ////////////////////////////
 // Execution
